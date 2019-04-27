@@ -12,7 +12,29 @@
 
 <script>
   import header  from "./components/header/header.vue"
+  import https from "@/https.js"
+
+  const ERR_OK = 0 ;
   export default {
+    data() {
+      return {
+        seller:{}
+      };
+    },
+    created() {
+      let  seller_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/seller';
+      https.fetchPost(seller_url,{} ).then((data) => {
+          console.log(data);
+          if ( data.data.errno == ERR_OK ) {
+            this.seller = data.data.data;　
+            console.log(this.seller);
+          }
+      }).catch(err=>{
+              console.log(err)
+          }
+      )
+      
+    },
     components:{
       'v-header':header
     }
