@@ -89,7 +89,6 @@
             margin: 0px
             vertical-align: top;
     .bulletin-wrapper
-      width:100%
       height:28px 
       line-height:28px 
       background-color:rgba(7,17,27,0.2)
