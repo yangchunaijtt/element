@@ -24,7 +24,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ## mock数据
 
 > 工具地址：https://www.easy-mock.com/
-- > 项目mock数据网址：https://www.easy-mock.com/project/5c134d091ed4e34c5e134742
+- 项目mock数据网址：https://www.easy-mock.com/project/5c134d091ed4e34c5e134742
 - mock数据：data.json
 
 ## 用svg做图标字体工具
@@ -53,6 +53,12 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 > 工具：草科二维码(https://cli.im/)
 
+## header组件
+ - 1：中间会出现缝隙的问题
+ - 出现原因：中间会有字符的问题。
+ - 解决方法：父元素font-size:0px;子元素单独设置font-size
+ - 2：使用2x图和3x图的问题
+ - 解决方法：使用stylus写函数处理,使用@media(-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio:3)
 
 
 
