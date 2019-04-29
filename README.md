@@ -24,7 +24,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ## mock数据
 
 > 工具地址：https://www.easy-mock.com/
-> 项目mock数据网址：https://www.easy-mock.com/project/5c134d091ed4e34c5e134742
+- > 项目mock数据网址：https://www.easy-mock.com/project/5c134d091ed4e34c5e134742
 - mock数据：data.json
 
 ## 用svg做图标字体工具
