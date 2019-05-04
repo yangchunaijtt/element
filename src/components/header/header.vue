@@ -37,9 +37,8 @@
             <h1 class="name">{{seller.name}}</h1>
             <div class="star-warpper">
               <!--star等下完成 -->
-
+              
             </div>
-            <!--可封装成组件 -->
             <div class="title-div">
               <title :title="'优惠信息'"></title>
             </div>
@@ -67,6 +66,7 @@
 
 <script  type="text/ecmascript-6">
   import title  from "../title/title.vue"
+  import star from "../star/star.vue"
 
   export default{
     props:{
@@ -92,6 +92,7 @@
     },
     components:{
       title,
+      star,
     }
   }
 </script>
