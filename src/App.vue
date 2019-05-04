@@ -15,23 +15,47 @@
   import https from "@/https.js"
 
   const ERR_OK = 0 ;
+  const  seller_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/seller';
+  const  goods_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/goods';
+  const  ratings_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/ratings';
   export default {
     data() {
       return {
-        seller:{}
+        seller:{},
+        goods:{},
+        ratings:{},
       };
     },
     created() {
-      let  seller_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/seller';
+       
+      // seller的请求
       https.fetchPost(seller_url,{} ).then((data) => {
-          // console.log(data);
           if ( data.data.errno == ERR_OK ) {
             this.seller = data.data.data;　
           }
       }).catch(err=>{
               console.log(err)
           }
-      )
+      );
+      // goods的请求
+      https.fetchPost(goods_url,{} ).then((data) => {
+          if ( data.data.errno == ERR_OK ) {
+            this.goods = data.data.data;　
+          }
+      }).catch(err=>{
+              console.log(err)
+          }
+      );
+      // ratings的请求
+      https.fetchPost(ratings_url,{} ).then((data) => {
+          if ( data.data.errno == ERR_OK ) {
+            this.ratings = data.data.data;　
+          }
+      }).catch(err=>{
+              console.log(err)
+          }
+      );
+
     },
     components:{
       'v-header':header
