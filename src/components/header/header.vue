@@ -19,7 +19,7 @@
       </div>
       <div class="supports-count" v-if="seller.supports" @click="showDetail">
         <span class="number">{{seller.supports.length}}个</span>
-        <span class="icon-keyboard_arrow_right"></span>
+        <i class="icon-keyboard_arrow_right"></i>
       </div>
     </div>
     <div class='bulletin-wrapper' @click="showDetail">
@@ -28,15 +28,46 @@
       <i class="icon-keyboard_arrow_right"></i>
     </div>
     <div class="background">
-      <img src="">
+      <img :src="seller.avatar" width="100%" height="100%">
     </div>
-    <div v-show="showDetails" class="details">
+    <transition name = "fade">
+      <div v-show="showDetails" class="details">
+        <div class="details-warpper clearfix">
+          <div class="details-main">
+            <h1 class="name">{{seller.name}}</h1>
+            <div class="star-warpper">
+              <!--star等下完成 -->
 
-    </div>
+            </div>
+            <!--可封装成组件 -->
+            <div class="title-div">
+              <title :title="'优惠信息'"></title>
+            </div>
+            <ul class="supports" v-if="seller.supports" >
+              <li class="supports-item" v-for="(sipports,index) in seller.supports" >
+                <span class="icon" :class="classMap[seller.supports[index].type]"></span>
+                <span class="description">{{seller.supports[index].description}}</span>
+              </li>
+            </ul>
+            <div class="title-div">
+              <title :title="'商家公告'"></title>
+            </div>
+            <div class="bulletin">
+              <p class="content">{{supports.bulletin}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="details-close" @click = "hiddenDetail" >
+          <i class="icon-close"></i>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script  type="text/ecmascript-6">
+  import title  from "../title/title.vue"
+
   export default{
     props:{
       seller:{
@@ -52,9 +83,15 @@
       showDetail(){
         this.showDetails = true ;
       },
+      hiddenDetail(){
+        this.showDetails = false ;
+      },
     },
     created(){
       this.classMap = ['decrease','discount','special','invoice','guarantee'];
+    },
+    components:{
+      title,
     }
   }
 </script>
@@ -63,8 +100,10 @@
   @import "../../common/stylus/mixin.styl"
 
   .header
+    position:relative
     background:rgba(7,17,27,0.5)
     color:#fff
+    overflow:hidden
     .content-wrapper
       position:relative
       padding:24px 12px 18px 24px 
@@ -168,14 +207,94 @@
         top:8px
         font-size:10px
     .background 
-      // 
+      position:absolute
+      top:0 
+      left:0 
+      width:100%
+      height:100%
+      filter:blur(10px)
+      z-index:-1
     .details
-      overflow:auto
       position:fixed
       top:0
       left:0 
       width:100% 
       height:100% 
-      background:rgba(7,17,27,0.8)
+      z-index:100
+      overflow:auto
+      backdrop-filter:blur(10px)
+      .details-warpper 
+        min-height:100%
+        width:100%
+        .details-main
+          margin-top:64px 
+          padding-bottom:64px 
+          .name
+            height:16px 
+            line-height:16px 
+            font-size:16px 
+            font-weight:700 
+            text-align:center 
+          .star-warpper
+            margin-top:18px 
+            padding:2px 0 
+            text-align:center 
+          .title-div
+            width:100%
+            margin:28px 0px  24px 0px 
+          .supports
+            width:80% 
+            margin: 0 auto 
+            .supports-item
+              padding:0px 12px 
+              margin-bottom:12px
+              font-size:0px 
+              &:last-child 
+                margin-bottom:0px
+              .icon 
+                display:inline-block 
+                width:16px 
+                height:16px 
+                margin-right:6px 
+                vertical-align:top
+                background-repeat:no-repeat
+                background-size:16px 16px
+                &.decrease
+                  bg-image("decrease_2")
+                &.discount
+                  bg-image("discount_2")
+                &.guarantee
+                  bg-image("guarantee_2")
+                &.invoice
+                  bg-image("invoice_2")
+                &.special
+                  bg-image("special_2")
+              .description
+                display:inline-block 
+                height:16px 
+                line-height:16px 
+                font-size:12px 
+          .bulletin
+            width:80% 
+            margin:0 auto 
+            .content 
+              padding:0 12px 
+              line-height:12px 
+              font-size:12px 
+      .details-close
+        position:relative
+        width:32px 
+        height:32px 
+        font-size:32px 
+        margin:-64px auto 0 auto 
+        clear:both 
+    .fade-enter-active, .fade-leave-active 
+      transition:all 0.5s
+      &.transition-fade
+        opacity: 1 
+        background:rgba(7,17,27,0.8)
+      &.fade-enter,&.fade-leave 
+        opacity: 0 
+        background:rgba(7,17,27,0)
     
 </style>
