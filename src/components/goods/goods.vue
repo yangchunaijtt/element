@@ -37,14 +37,18 @@
         </li>
       </ul>
     </div>
+    <shopcart></shopcart>
   </div>
 </template>
 
 <script  type="text/ecmascript-6">
   import https from "@/https.js"
+  import shopcart from "../shopcart/shopcart.vue"
 
   const  goods_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/goods';
   const ERR_OK = 0 ;
+
+  // better-scroll的联动滚动后面完成
 
   export default{
     props:{
@@ -71,9 +75,9 @@
           }
       );
     },
-    computed:{
-       
-    },
+    components:{
+      shopcart
+    }
   }
 </script>
 

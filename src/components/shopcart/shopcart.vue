@@ -1,6 +1,6 @@
 <template>
   <!--购物车组件-->
-  <div>
+  <div class="shopcart">
     
   </div>
 </template>
@@ -12,5 +12,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  
+  .shopcart
+    // 
+    
 </style>
