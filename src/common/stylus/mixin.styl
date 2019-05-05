@@ -16,6 +16,10 @@ border-1px($color)
   //   width:100% 
   //   border-bottom:1px solid $color 
   //   content:' '
+// 后面没有线的
+border-none()
+  &:after
+    display:none
 // 适配图片大小出现的问题，物理像素的问题
 bg-image($url)
   background-image:url($url+"@2x.png")

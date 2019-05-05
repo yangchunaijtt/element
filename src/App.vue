@@ -1,12 +1,12 @@
 <template>
   <div>
     <v-header :seller="seller"></v-header>
-    <div class="tab border-1px">
-        <router-link to="/goods"   class="tab-item">商品</router-link>
+    <div class="tab border-1px" >
+        <router-link to="/goods"   class="tab-item" >商品</router-link>
         <router-link to="/ratings" class="tab-item">评论</router-link>
         <router-link to="/seller"  class="tab-item">商家</router-link>
     </div>
-    <router-view></router-view>
+    <router-view :seller="seller"></router-view>
   </div>
 </template>
 
@@ -16,20 +16,19 @@
 
   const ERR_OK = 0 ;
   const  seller_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/seller';
-  const  goods_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/goods';
+  
   const  ratings_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/ratings';
   export default {
     data() {
       return {
         seller:{},
-        goods:{},
         ratings:{},
       };
     },
     created() {
        
       // seller的请求
-      https.fetchPost(seller_url,{} ).then((data) => {
+      https.fetchGet(seller_url,{} ).then((data) => {
           if ( data.data.errno == ERR_OK ) {
             this.seller = data.data.data;　
           }
@@ -37,17 +36,9 @@
               console.log(err)
           }
       );
-      // goods的请求
-      https.fetchPost(goods_url,{} ).then((data) => {
-          if ( data.data.errno == ERR_OK ) {
-            this.goods = data.data.data;　
-          }
-      }).catch(err=>{
-              console.log(err)
-          }
-      );
+      
       // ratings的请求
-      https.fetchPost(ratings_url,{} ).then((data) => {
+      https.fetchGet(ratings_url,{} ).then((data) => {
           if ( data.data.errno == ERR_OK ) {
             this.ratings = data.data.data;　
           }

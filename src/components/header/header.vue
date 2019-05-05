@@ -40,19 +40,19 @@
               
             </div>
             <div class="title-div">
-              <title :title="'优惠信息'"></title>
+              <v_title :title="'优惠信息'"></v_title>
             </div>
             <ul class="supports" v-if="seller.supports" >
-              <li class="supports-item" v-for="(sipports,index) in seller.supports" >
+              <li class="supports-item" v-for="(itemdata,index) in seller.supports" >
                 <span class="icon" :class="classMap[seller.supports[index].type]"></span>
                 <span class="description">{{seller.supports[index].description}}</span>
               </li>
             </ul>
             <div class="title-div">
-              <title :title="'商家公告'"></title>
+              <v_title :title="'商家公告'"></v_title>
             </div>
             <div class="bulletin">
-              <p class="content">{{supports.bulletin}}</p>
+              <p class="content">{{seller.bulletin}}</p>
             </div>
           </div>
         </div>
@@ -89,9 +89,13 @@
     },
     created(){
       this.classMap = ['decrease','discount','special','invoice','guarantee'];
+
+    },
+    mounted(){
+  
     },
     components:{
-      title,
+      v_title:title,
       star,
     }
   }
@@ -224,6 +228,8 @@
       z-index:100
       overflow:auto
       backdrop-filter:blur(10px)
+      opacity: 1 
+      background:rgba(7,17,27,0.8)
       .details-warpper 
         min-height:100%
         width:100%
@@ -291,11 +297,9 @@
         clear:both 
     .fade-enter-active, .fade-leave-active 
       transition:all 0.5s
-      &.transition-fade
-        opacity: 1 
-        background:rgba(7,17,27,0.8)
       &.fade-enter,&.fade-leave 
         opacity: 0 
         background:rgba(7,17,27,0)
+      
     
 </style>
