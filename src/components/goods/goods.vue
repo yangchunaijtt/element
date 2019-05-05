@@ -1,7 +1,7 @@
 <template>
   <div class="goods">
+  <!--左侧内容 -->
     <div class="menu-warpper">
-    <!--左侧内容 -->
       <ul>
         <li v-for="(item,index) in goods" class="goods-item">
           <span class="text border-1px">
@@ -64,7 +64,7 @@
       https.fetchGet(goods_url,{} ).then((data) => {
           if ( data.data.errno == ERR_OK ) {
             this.goods = data.data.data;　
-            console.log(this.goods);
+            
           }
       }).catch(err=>{
               console.log(err)
@@ -72,9 +72,7 @@
       );
     },
     computed:{
-       goodsicon(){
-
-       }
+       
     },
   }
 </script>
@@ -95,6 +93,7 @@
       width:80px 
       background:#f2f5f7
       font-size:0 
+      overflow-y:scroll
       .goods-item
         display:table
         width:56px 
@@ -125,6 +124,7 @@
               bg-image("special_1")
     .foods-warpper
       flex:1
+      overflow-y:scroll
       .good-item
         display:block
         .name
@@ -136,6 +136,7 @@
           background:#f3f5f7
           border-left:2px solid #d9dde1
         .food-item
+          display:flex
           margin:18px
           padding-bottom: 18px
           border-1px(rgba(7,17,27,0.1))
@@ -144,12 +145,14 @@
             margin-bottom:0
           .icon
             display: inline-block
+            flex:0 0 57px
             width:57px 
             height:57px 
             margin-right:10px
             vertical-align: top;
           .right
             display:inline-block
+            flex:1
             .h2-name
               margin-top:2px 
               margin-bottom:8px 
@@ -157,7 +160,7 @@
               font-size:14px 
               color:rgb(7,17,27)
             .description,.sellCount
-              line-height:10px 
+              line-height:12px 
               margin-bottom:8px
               font-size:10px 
               color:rgb(147,153,159)
@@ -166,12 +169,15 @@
                 margin-right:12px 
             .price
               line-height:14px 
+              font-weight:700
               .newprice
                 font-size:14px 
                 color:rgb(240,20,20)
+                font-weight:700
               .oldprice
                 font-size:10px 
-                color:rgb(2147,153,159)
+                color:#80868c
+                font-weight:700
                 text-decoration:line-through
 
 </style>

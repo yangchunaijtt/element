@@ -17,7 +17,7 @@
   const ERR_OK = 0 ;
   const  seller_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/seller';
   
-  const  ratings_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/ratings';
+  
   export default {
     data() {
       return {
@@ -31,16 +31,6 @@
       https.fetchGet(seller_url,{} ).then((data) => {
           if ( data.data.errno == ERR_OK ) {
             this.seller = data.data.data;　
-          }
-      }).catch(err=>{
-              console.log(err)
-          }
-      );
-      
-      // ratings的请求
-      https.fetchGet(ratings_url,{} ).then((data) => {
-          if ( data.data.errno == ERR_OK ) {
-            this.ratings = data.data.data;　
           }
       }).catch(err=>{
               console.log(err)
