@@ -1,49 +1,53 @@
 <template>
-  <div class="goods">
-  <!--左侧内容 -->
-    <div class="menu-warpper">
-      <ul>
-        <li v-for="(item,index) in goods" class="goods-item">
-          <span class="text border-1px">
-            <span v-show="item.type!==-1" class="icon" :class="classMap[item.type]"></span>{{item.name}}
-          </span>
-        </li>
-      </ul>
-    </div>
-     <!--右侧内容 -->
-    <div class="foods-warpper">
-      <ul>
-        <li class="good-item" v-for="(item,index) in goods">
-          <h1 class="name">{{item.name}}</h1>
-          <ul>
-            <li v-for = "(food,index) in item.foods" class="food-item border-1px">
-              <div class="icon">
-                <img :src="food.icon" class="img" width="57" height="57">
-              </div>
-              <div class="right">
-                <h2 class="h2-name">{{food.name}}</h2>
-                <p class="description" v-show="food.description!==''">{{food.description}}</p>
-                <div class="sellCount">
-                  <span class="rating">月售{{food.sellCount}}份</span>
-                  <span>好评率{{food.rating}}%</span>
+    <div class="goods">
+    <!--左侧内容 -->
+      <div class="menu-warpper">
+        <ul>
+          <li v-for="(item,index) in goods" class="goods-item">
+            <span class="text border-1px">
+              <span v-show="item.type!==-1" class="icon" :class="classMap[item.type]"></span>{{item.name}}
+            </span>
+          </li>
+        </ul>
+      </div>
+      <!--右侧内容 -->
+      <div class="foods-warpper">
+        <ul>
+          <li class="good-item" v-for="(item,index) in goods">
+            <h1 class="name">{{item.name}}</h1>
+            <ul>
+              <li @click="selectFoods(food,$event)" v-for = "(food,index) in item.foods" class="food-item border-1px">
+                <div class="icon">
+                  <img :src="food.icon" class="img" width="57" height="57">
                 </div>
-                <div class="price">
-                  <span class="newprice">￥{{food.price}}</span>
-                  <span class="oldprice" v-show="food.oldPrice!==''">￥{{food.oldPrice}}</span>
+                <div class="right">
+                  <h2 class="h2-name">{{food.name}}</h2>
+                  <p class="description" v-show="food.description!==''">{{food.description}}</p>
+                  <div class="sellCount">
+                    <span class="rating">月售{{food.sellCount}}份</span>
+                    <span>好评率{{food.rating}}%</span>
+                  </div>
+                  <div class="price">
+                    <span class="newprice">￥{{food.price}}</span>
+                    <span class="oldprice" v-show="food.oldPrice!==''">￥{{food.oldPrice}}</span>
+                  </div>
                 </div>
-              </div>
-            </li>
-          </ul>
-        </li>
-      </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- 调用的组件 -->
+      <food :food="selectFood" ref="food" ></food>
+      <shopcart :delivery_price ="seller.deliveryPrice" :minPrice="seller.minPrice"></shopcart>
     </div>
-    <shopcart></shopcart>
-  </div>
+     
 </template>
 
 <script  type="text/ecmascript-6">
   import https from "@/https.js"
   import shopcart from "../shopcart/shopcart.vue"
+  import food from "../food/food.vue"
 
   const  goods_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/goods';
   const ERR_OK = 0 ;
@@ -60,6 +64,7 @@
       return{
         goods:[],
         classMap:[],
+        selectFood:{}
       }
     },
     created(){
@@ -75,8 +80,21 @@
           }
       );
     },
+    methods:{
+      selectFoods(food,event){
+        // if (!event._constructed){
+        //   return ;
+        // }
+        // 有部分没写
+        this.selectFood = food ;
+        console.log(this.selectFood);
+        // 可以使用 refs来使用子组件定义的方法
+        this.$refs.food.show();
+      }
+    },
     components:{
-      shopcart
+      shopcart,
+      food
     }
   }
 </script>
@@ -89,7 +107,7 @@
     display:flex
     width:100%
     top:176px 
-    bottom:46px 
+    bottom:48px 
     left:0
     overflow:hidden
     .menu-warpper
