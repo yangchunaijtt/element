@@ -55,7 +55,14 @@ export default {
 <style lang="stylus" scoped>
   @import "../../common/stylus/mixin.styl"
   // 需要定义动画效果
-
+  
+  .move-enter-active, .move-leave-active 
+    transition: all 0.2s linear
+    transform:translate3d(0, 0, 0);
+  .move-enter 
+    transform: translate3d(100%, 0, 0)
+  .move-leave 
+    transform: translate3d(0, 0, 0)
   .food
     position:fixed
     left:0 
@@ -64,5 +71,56 @@ export default {
     width:100%
     z-index:40 
     background:#fff
+    .img-header
+      position:relative
+      width:100%
+      height:0 
+      padding-top:100%
+      img
+        position:absolute
+        left:0 
+        top:0 
+        height:100%
+        width:100%
+      .back
+        position:absolute
+        left:0 
+        top:10px 
+        .icon-arrow_lift
+          display:block
+          height:20px
+          line-height:20px 
+          padding:10px 
+          font-size:20px
+          color:#fff
+    .content
+      padding:18px 
+      .title
+        margin-bottom:8px
+        height:14px 
+        line-height:14px 
+        font-size:14px 
+        font-weight:700 
+        color:reb(7,17,27)
+      .detail
+        margin-bottom:18px 
+        height:10px 
+        line-height:10px 
+        font-size:10px 
+        color:rgb(149,153,159)
+        .sell-count
+          margin-right:12px 
+      .price
+        line-height:14px 
+        font-weight:700
+        .now
+          font-size:14px 
+          color:rgb(240,20,20)
+          font-weight:700
+        .old
+          font-size:10px 
+          color:#80868c
+          font-weight:700
+          text-decoration:line-through
 
 </style>
