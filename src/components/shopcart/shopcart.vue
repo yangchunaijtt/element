@@ -109,7 +109,6 @@ export default {
       .content-right 
         flex:0 0 105px 
         width:105px 
-        padding:0 6px
         background:#2b333b
         .pay
           width:100%

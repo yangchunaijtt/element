@@ -76,7 +76,7 @@
             
           }
       }).catch(err=>{
-              console.log(err)
+            console.log(err)
           }
       );
     },
@@ -87,7 +87,7 @@
         // }
         // 有部分没写
         this.selectFood = food ;
-        console.log(this.selectFood);
+        
         // 可以使用 refs来使用子组件定义的方法
         this.$refs.food.show();
       }
