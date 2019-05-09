@@ -56,13 +56,6 @@ export default {
   @import "../../common/stylus/mixin.styl"
   // 需要定义动画效果
   
-  .move-enter-active, .move-leave-active 
-    transition: all 0.2s linear
-    transform:translate3d(0, 0, 0);
-  .move-enter 
-    transform: translate3d(100%, 0, 0)
-  .move-leave 
-    transform: translate3d(0, 0, 0)
   .food
     position:fixed
     left:0 
@@ -71,6 +64,11 @@ export default {
     width:100%
     z-index:40 
     background:#fff
+    transform: translate3d(0, 0, 0)
+    &.move-enter-active, &.move-leave-active
+      transition: all 0.2s linear
+    &.move-enter, &.move-leave-active
+      transform: translate3d(100%, 0, 0)
     .img-header
       position:relative
       width:100%

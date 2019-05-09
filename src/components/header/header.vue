@@ -30,7 +30,7 @@
     <div class="background">
       <img :src="seller.avatar" width="100%" height="100%">
     </div>
-    <transition name = "fade">
+    <transition name ="fade">
       <div v-show="showDetails" class="details">
         <div class="details-warpper clearfix">
           <div class="details-main">
@@ -220,86 +220,86 @@
       filter:blur(10px)
       z-index:-1
     .details
-      position:fixed
-      top:0
-      left:0 
-      width:100% 
-      height:100% 
-      z-index:100
-      overflow:auto
-      backdrop-filter:blur(10px)
-      opacity: 1 
-      background:rgba(7,17,27,0.8)
-      .details-warpper 
-        min-height:100%
-        width:100%
-        .details-main
-          margin-top:64px 
-          padding-bottom:64px 
-          .name
-            height:16px 
-            line-height:16px 
-            font-size:16px 
-            font-weight:700 
-            text-align:center 
-          .star-warpper
-            margin-top:18px 
-            padding:2px 0 
-            text-align:center 
-          .title-div
-            width:100%
-            margin:28px 0px  24px 0px 
-          .supports
-            width:80% 
-            margin: 0 auto 
-            .supports-item
-              padding:0px 12px 
-              margin-bottom:12px
-              font-size:0px 
-              &:last-child 
-                margin-bottom:0px
-              .icon 
-                display:inline-block 
-                width:16px 
-                height:16px 
-                margin-right:6px 
-                vertical-align:top
-                background-repeat:no-repeat
-                background-size:16px 16px
-                &.decrease
-                  bg-image("decrease_2")
-                &.discount
-                  bg-image("discount_2")
-                &.guarantee
-                  bg-image("guarantee_2")
-                &.invoice
-                  bg-image("invoice_2")
-                &.special
-                  bg-image("special_2")
-              .description
-                display:inline-block 
-                height:16px 
-                line-height:16px 
+        position:fixed
+        top:0
+        left:0 
+        width:100% 
+        height:100% 
+        z-index:100
+        overflow:auto
+        transition: all 0.5s
+        background: rgba(7,17,27,.8)
+        backdrop-filter:blur(10px)
+        &.fade-enter-active, &.fade-leave-active
+          opacity: 1
+          background: rgba(7,17,27,0.8)
+        &.fade-enter, &.fade-leave-to 
+          opacity: 0
+          background: rgba(7,17,27,0) 
+        .details-warpper 
+          min-height:100%
+          width:100%
+          .details-main
+            margin-top:64px 
+            padding-bottom:64px 
+            .name
+              height:16px 
+              line-height:16px 
+              font-size:16px 
+              font-weight:700 
+              text-align:center 
+            .star-warpper
+              margin-top:18px 
+              padding:2px 0 
+              text-align:center 
+            .title-div
+              width:100%
+              margin:28px 0px  24px 0px 
+            .supports
+              width:80% 
+              margin: 0 auto 
+              .supports-item
+                padding:0px 12px 
+                margin-bottom:12px
+                font-size:0px 
+                &:last-child 
+                  margin-bottom:0px
+                .icon 
+                  display:inline-block 
+                  width:16px 
+                  height:16px 
+                  margin-right:6px 
+                  vertical-align:top
+                  background-repeat:no-repeat
+                  background-size:16px 16px
+                  &.decrease
+                    bg-image("decrease_2")
+                  &.discount
+                    bg-image("discount_2")
+                  &.guarantee
+                    bg-image("guarantee_2")
+                  &.invoice
+                    bg-image("invoice_2")
+                  &.special
+                    bg-image("special_2")
+                .description
+                  display:inline-block 
+                  height:16px 
+                  line-height:16px 
+                  font-size:12px 
+            .bulletin
+              width:80% 
+              margin:0 auto 
+              .content 
+                padding:0 12px 
+                line-height:12px 
                 font-size:12px 
-          .bulletin
-            width:80% 
-            margin:0 auto 
-            .content 
-              padding:0 12px 
-              line-height:12px 
-              font-size:12px 
-      .details-close
-        position:relative
-        width:32px 
-        height:32px 
-        font-size:32px 
-        margin:-64px auto 0 auto 
-        clear:both 
-    .fade-enter-active, .fade-leave-active 
-      transition:all 0.5s
-      &.fade-enter,&.fade-leave 
-        opacity: 0 
-        background:rgba(7,17,27,0)
-      
+        .details-close
+          position:relative
+          width:32px 
+          height:32px 
+          font-size:32px 
+          margin:-64px auto 0 auto 
+          clear:both 
     
 </style>
