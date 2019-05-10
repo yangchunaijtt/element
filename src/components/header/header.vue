@@ -43,7 +43,7 @@
               <v_title :title="'优惠信息'"></v_title>
             </div>
             <ul class="supports" v-if="seller.supports" >
-              <li class="supports-item" v-for="(itemdata,index) in seller.supports" >
+              <li class="supports-item" v-for="(itemdata,index) in seller.supports"  v-bind:key="itemdata.id">
                 <span class="icon" :class="classMap[seller.supports[index].type]"></span>
                 <span class="description">{{seller.supports[index].description}}</span>
               </li>
@@ -163,8 +163,8 @@
           .description
             display:inline-block
             font-size:10px
-            line-height: 12px;
-            margin: 0px
+            line-height: 12px
+            margin:0px
             vertical-align: top;
       .supports-count
         position:absolute

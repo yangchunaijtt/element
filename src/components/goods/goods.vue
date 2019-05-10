@@ -3,7 +3,7 @@
     <!--左侧内容 -->
       <div class="menu-warpper">
         <ul>
-          <li v-for="(item,index) in goods" class="goods-item">
+          <li v-for="(item,index) in goods" class="goods-item" v-bind:key="item.id">
             <span class="text border-1px">
               <span v-show="item.type!==-1" class="icon" :class="classMap[item.type]"></span>{{item.name}}
             </span>
@@ -13,10 +13,10 @@
       <!--右侧内容 -->
       <div class="foods-warpper">
         <ul>
-          <li class="good-item" v-for="(item,index) in goods">
+          <li class="good-item" v-for="(item,index) in goods"  v-bind:key="item.id">
             <h1 class="name">{{item.name}}</h1>
             <ul>
-              <li @click="selectFoods(food,$event)" v-for = "(food,index) in item.foods" class="food-item border-1px">
+              <li @click="selectFoods(food,$event)" v-for = "(food,index) in item.foods" class="food-item border-1px" v-bind:key="food.id">
                 <div class="icon">
                   <img :src="food.icon" class="img" width="57" height="57">
                 </div>
