@@ -31,6 +31,9 @@
                     <span class="newprice">￥{{food.price}}</span>
                     <span class="oldprice" v-show="food.oldPrice!==''">￥{{food.oldPrice}}</span>
                   </div>
+                  <div class="cartcontrl">
+                    <cartcontrol :food="food"></cartcontrol>
+                  </div>
                 </div>
               </li>
             </ul>
@@ -48,6 +51,7 @@
   import https from "@/https.js"
   import shopcart from "../shopcart/shopcart.vue"
   import food from "../food/food.vue"
+  import cartcontrol from "@/components/cartcontrol/cartcontrol.vue"
 
   const  goods_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/goods';
   const ERR_OK = 0 ;
@@ -94,7 +98,8 @@
     },
     components:{
       shopcart,
-      food
+      food,
+      cartcontrol
     }
   }
 </script>
@@ -201,5 +206,9 @@
                 color:#80868c
                 font-weight:700
                 text-decoration:line-through
+            .cartcontrl
+              position:absolute
+              bottom:14px 
+              right:0
 
 </style>
