@@ -24,7 +24,7 @@
     },
     methods:{
       addCart(){
-
+        console.log("click")
       }
     },
     created(){

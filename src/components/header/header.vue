@@ -37,7 +37,7 @@
             <h1 class="name">{{seller.name}}</h1>
             <div class="star-warpper">
               <!--star等下完成 -->
-              
+              <star :size="48" :score="seller.score"></star>
             </div>
             <div class="title-div">
               <v_title :title="'优惠信息'"></v_title>
