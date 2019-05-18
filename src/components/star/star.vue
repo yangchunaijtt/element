@@ -20,10 +20,10 @@
         return "star-"+ this.size
       },
       itemClass(){
-        
+        return []
       }
+      
     },
-    
   }
 </script>
 
