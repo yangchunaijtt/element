@@ -25,10 +25,12 @@
     methods:{
       addCart(){
         console.log("click")
+        if (!this.food.count){
+          this.food.count = 1 ;
+        } else {
+          this.food.count ++ ;
+        }
       }
-    },
-    created(){
-      // console.log(this.food)
     },
   }
 </script>
