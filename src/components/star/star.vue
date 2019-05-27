@@ -4,6 +4,10 @@
   </div>
 </template>
 <script>
+  const length = 5 ;
+  const STAR_ON = "on";
+  const STAR_HALF = "half";
+  const STAR_OFF = "off";
 
   // 星星复用的组件  
   export default { 
@@ -16,13 +20,26 @@
       }
     },
     computed:{
-      starType(){
-        return "star-"+ this.size
+      starType () {
+        return "star-" + this.size
       },
-      itemClass(){
-        return []
+      itemClass () {
+        let result = [];
+        let score = Math.floor(this.score*2)/2;
+        let score_integer = Math.floor(score);
+        for ( let  i = 0;i<score_integer;i++){
+          result.push(STAR_ON);
+        }
+        
+        if ( score !== 0 && score/score_integer !== 1){
+          // 有小数
+          result.push(STAR_HALF);
+        }
+        while( result.length < length ){
+          result.push(STAR_OFF);
+        }
+        return result;
       }
-      
     },
   }
 </script>

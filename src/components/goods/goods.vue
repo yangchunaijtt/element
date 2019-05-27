@@ -77,7 +77,6 @@
       https.fetchGet(goods_url,{} ).then((data) => {
           if ( data.data.errno == ERR_OK ) {
             this.goods = data.data.data;　
-            
           }
       }).catch(err=>{
             console.log(err)
@@ -90,10 +89,12 @@
         //   return ;
         // }
         // 有部分没写
-        this.selectFood = food ;
+        // 下面的先隐藏
+        // this.selectFood = food ;
         
         // 可以使用 refs来使用子组件定义的方法
-        this.$refs.food.show();
+        // 下面的先隐藏
+        // this.$refs.food.show();
       }
     },
     components:{
