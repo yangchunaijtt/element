@@ -18,6 +18,7 @@
         <div class="pay" >{{orderText}}</div>
       </div>
     </div>
+    
   </div>
 </template>
 
