@@ -43,7 +43,7 @@ export default {
     },
     selectfood:{
       type:Array,
-      default(){
+      default () {
         return [
           
         ];
@@ -52,7 +52,7 @@ export default {
   },
   data(){
     return {
-
+      
     };
   },
   methods:{

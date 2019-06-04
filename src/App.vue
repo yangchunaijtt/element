@@ -15,9 +15,9 @@
   import https from "@/https.js"
 
   const ERR_OK = 0 ;
-  const  seller_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/seller';
+  const seller_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/seller';
   
-  
+
   export default {
     data() {
       return {
