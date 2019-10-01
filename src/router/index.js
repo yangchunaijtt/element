@@ -8,6 +8,8 @@ import componentsB from "@/components/demo/componentsB"
 import goods    from "@/components/goods/goods"
 import ratings  from "@/components/ratings/ratings"
 import seller   from "@/components/seller/seller"
+// job路由
+import job    from "@/components/LoafOnAJob/LoafOnAJob"
 
 Vue.use(Router)
 
@@ -44,6 +46,11 @@ export default new Router({
       path:"/componentsB",
       name:"componentsB",
       component:componentsB
+    },
+    {
+      path:"/job",
+      name:"job",
+      component:job
     }
   ]
 })

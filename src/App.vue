@@ -10,13 +10,14 @@
   </div>
 </template>
 
+
 <script>
   import header  from "./components/header/header.vue"
   import https from "@/https.js"
 
   const ERR_OK = 0 ;
   const seller_url = 'https://www.easy-mock.com/mock/5c134d091ed4e34c5e134742/vue-element/seller';
-  
+
 
   export default {
     data() {
@@ -43,6 +44,7 @@
     }
   }
 </script>
+
 
 <style lang="stylus"  rel="stylesheet/stylus">
   @import "./common/stylus/mixin.styl"

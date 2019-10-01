@@ -78,7 +78,7 @@
         showDetails:false
       };
     },
-    methods:{
+    methods:{    // 方法
       showDetail(){
         this.showDetails = true ;
       },
@@ -86,7 +86,7 @@
         this.showDetails = false ;
       },
     },
-    created(){
+    created(){ //生命钩子
       this.classMap = ['decrease','discount','special','invoice','guarantee'];
 
     },

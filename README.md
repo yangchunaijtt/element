@@ -60,6 +60,12 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
  - 2：使用2x图和3x图的问题
  - 解决方法：使用stylus写函数处理,使用@media(-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio:3)
 
+## Job组件
+
+  - 1：/job路由时的页面效果
+  - 2：
+  -
+  -
 
 
 

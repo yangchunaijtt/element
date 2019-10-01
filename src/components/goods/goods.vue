@@ -59,12 +59,12 @@
   // better-scroll的联动滚动后面完成
 
   export default{
-    props:{
+    props:{   // 接受其他组件传过来的参数
       seller:{
         type:Object
       }
     },
-    data(){
+    data(){ // 组件内数据
       return{
         goods:[],
         classMap:[],
